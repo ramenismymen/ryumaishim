@@ -28,6 +28,12 @@ h2 {
     margin-bottom: 2rem;
 }
 
+.subtitle {
+    font-size: 1.2rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
 p {
     line-height: 1.6;
     max-width: 600px;
@@ -48,6 +54,10 @@ a:hover {
 header {
     padding: 1rem;
     border-bottom: 2px solid #feda4a;
+    position: sticky;
+    top: 0;
+    background-color: #000;
+    z-index: 1000;
 }
 
 nav ul {
@@ -59,7 +69,11 @@ nav ul {
     gap: 1.5rem;
 }
 
-/* Star Wars Intro */
+/* Hero Section */
+.hero {
+    padding: 4rem 1rem;
+}
+
 .star-wars-intro {
     font-size: 2rem;
     font-weight: bold;
@@ -68,60 +82,170 @@ nav ul {
     margin-bottom: 2rem;
 }
 
-/* Hero Section */
-.hero {
-    padding: 4rem 1rem;
-}
-
 .hero h1 {
     font-size: 3rem;
     margin: 0;
     animation: glitch 1s linear infinite;
 }
 
-/* Input Box */
-.input-container {
-    position: relative;
-    width: 100%;
-    max-width: 270px;
-    margin: 2rem auto;
+/* Event Cards Section */
+.event-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS */
+    padding-bottom: 20px;
+}
+.parent {
+  width: 300px;
+  min-width: 300px;
+  padding: 20px;
+  perspective: 1000px;
+  scroll-snap-align: center;
 }
 
-.input {
-    width: 100%;
-    max-width: 270px;
-    height: 60px;
-    padding: 12px;
-    font-size: 18px;
-    font-family: 'Orbitron', sans-serif;
-    color: #000;
-    background-color: #feda4a;
-    border: 4px solid #feda4a;
-    outline: none;
-    transition: all 0.3s ease;
-    box-shadow: 8px 8px 0 #feda4a;
+.card {
+  padding-top: 50px;
+  border: 3px solid #141414;
+  transform-style: preserve-3d;
+  background: linear-gradient(135deg, #0000 18.75%, #f3f3f3 0 31.25%, #0000 0),
+    repeating-linear-gradient(45deg, #f3f3f3 -6.25% 6.25%, #141414 0 18.75%);
+  background-size: 60px 60px;
+  background-position: 0 0, 0 0;
+  background-color: #141414;
+  width: 100%;
+  box-shadow: rgba(142, 142, 142, 0.3) 0px 30px 30px -10px;
+  transition: all 0.5s ease-in-out;
 }
 
-/* Cards */
-.event-card, .team-member-card, .project-card {
-    border: 2px solid #feda4a;
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-    transition: all 0.3s ease;
+.card:hover {
+  background-position: -100px 100px, -100px 100px;
+  transform: rotate3d(0.5, 1, 0, 30deg);
 }
 
-.event-card:hover, .team-member-card:hover, .project-card:hover {
-    background-color: #feda4a;
-    color: #000;
+.content-box {
+  background: #8ed500;
+  transition: all 0.5s ease-in-out;
+  padding: 60px 25px 25px 25px;
+  transform-style: preserve-3d;
+}
+
+.content-box .card-title {
+  display: inline-block;
+  color: #141414;
+  font-size: 25px;
+  font-weight: 900;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 50px);
+}
+
+.content-box .card-title:hover {
+  transform: translate3d(0px, 0px, 60px);
+}
+
+.content-box .card-content {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #141414;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 30px);
+}
+
+.content-box .card-content:hover {
+  transform: translate3d(0px, 0px, 60px);
+}
+
+.content-box .see-more {
+  cursor: pointer;
+  margin-top: 1rem;
+  display: inline-block;
+  font-weight: 900;
+  font-size: 9px;
+  text-transform: uppercase;
+  color: #8ed500;
+  background: #141414;
+  padding: 0.5rem 0.7rem;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 20px);
+}
+
+.content-box .see-more:hover {
+  transform: translate3d(0px, 0px, 60px);
+}
+
+.date-box {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  height: 60px;
+  width: 60px;
+  background: #141414;
+  border: 1px solid #8ed500;
+  padding: 10px;
+  transform: translate3d(0px, 0px, 80px);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 17px 10px -10px;
+}
+
+.date-box span {
+  display: block;
+  text-align: center;
+}
+
+.date-box .month {
+  color: #8ed500;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.date-box .date {
+  font-size: 20px;
+  font-weight: 900;
+  color: #8ed500;
 }
 
 /* Grids */
 .stats-grid, .team-grid, .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    max-width: 900px;
+    gap: 1.5rem;
+    max-width: 1000px;
     margin: 0 auto;
+}
+
+/* Team Cards */
+.team-member-card {
+    border: 2px solid #feda4a;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.team-member-card:hover {
+    background-color: #feda4a;
+    color: #000;
+}
+
+.team-member-card .role {
+    font-size: 0.9rem;
+    color: #8ed500;
+    margin-bottom: 1rem;
+}
+
+.team-member-card .page-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #4ac5ff;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid #4ac5ff;
+}
+
+.team-member-card:hover .page-link {
+    background-color: #000;
+    color: #4ac5ff;
 }
 
 /* Tags */
@@ -149,6 +273,32 @@ nav ul {
     color: #feda4a;
 }
 
+/* Join Us Section Input */
+.input-container {
+    position: relative;
+    width: 100%;
+    max-width: 270px;
+    margin: 1rem auto;
+}
+
+.input {
+    width: 100%;
+    height: 60px;
+    padding: 12px;
+    font-size: 18px;
+    font-family: "Courier New", monospace;
+    color: #000;
+    background-color: #fff;
+    border: 4px solid #fff;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 8px 8px 0 #fff;
+}
+
+.input:focus {
+    animation: shake 0.5s ease-in-out;
+}
+
 /* Footer */
 footer {
     padding: 2rem;
@@ -156,71 +306,25 @@ footer {
     margin-top: 4rem;
 }
 
-/* Washing Machine Loader */
-.loader {
-    width: 120px;
-    height: 150px;
-    background-color: #fff;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(#ddd 50%, #bbb 51%),
-      linear-gradient(#ddd, #ddd), linear-gradient(#ddd, #ddd),
-      radial-gradient(ellipse at center, #aaa 25%, #eee 26%, #eee 50%, #0000 55%),
-      radial-gradient(ellipse at center, #aaa 25%, #eee 26%, #eee 50%, #0000 55%),
-      radial-gradient(ellipse at center, #aaa 25%, #eee 26%, #eee 50%, #0000 55%);
-    background-position: 0 20px, 45px 0, 8px 6px, 55px 3px, 75px 3px, 95px 3px;
-    background-size: 100% 4px, 1px 23px, 30px 8px, 15px 15px, 15px 15px, 15px 15px;
-    position: relative;
-    border-radius: 6%;
-    animation: shake 3s ease-in-out infinite;
-    transform-origin: 60px 180px;
-    margin: 2rem auto;
+.social-links {
+    margin-bottom: 1rem;
+}
+.social-links a {
+    margin: 0 1rem;
+    color: #4ac5ff;
+}
+.social-links a:hover {
+     text-shadow: 0 0 10px #4ac5ff;
 }
 
-.loader:before {
-    content: "";
-    position: absolute;
-    left: 5px;
-    top: 100%;
-    width: 7px;
-    height: 5px;
-    background: #aaa;
-    border-radius: 0 0 4px 4px;
-    box-shadow: 102px 0 #aaa;
-}
 
-.loader:after {
-    content: "";
-    position: absolute;
-    width: 95px;
-    height: 95px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    bottom: 20px;
-    background-color: #bbdefb;
-    background-image: linear-gradient( to right, #0004 0%, #0004 49%, #0000 50%, #0000 100% ),
-      linear-gradient(135deg, #64b5f6 50%, #607d8b 51%);
-    background-size: 30px 100%, 90px 80px;
-    border-radius: 50%;
-    background-repeat: repeat, no-repeat;
-    background-position: 0 0;
-    box-sizing: border-box;
-    border: 10px solid #DDD;
-    box-shadow: 0 0 0 4px #999 inset, 0 0 6px 6px #0004 inset;
-    animation: spin 3s ease-in-out infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg) }
-    50% { transform: rotate(360deg) }
-    75% { transform: rotate(750deg) }
-    100% { transform: rotate(1800deg) }
-}
-
+/* Animations */
 @keyframes shake {
-    65%, 80%, 88%, 96% { transform: rotate(0.5deg) }
-    50%, 75%, 84%, 92% { transform: rotate(-0.5deg) }
-    0%, 50%, 100% { transform: rotate(0) }
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px) rotate(-5deg); }
+    50% { transform: translateX(5px) rotate(5deg); }
+    75% { transform: translateX(-5px) rotate(-5deg); }
+    100% { transform: translateX(0); }
 }
 
 @keyframes glitch {
@@ -237,4 +341,8 @@ footer {
     75% { transform: skew(0.4deg, 1deg); opacity: 0.75; }
     80% { transform: none; opacity: 1; }
     100% { transform: none; opacity: 1; }
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
 }
