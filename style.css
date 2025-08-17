@@ -6,11 +6,82 @@ body, html {
     padding: 0;
     width: 100%;
     height: 100%;
-    background-color: #000;
+    /* background-color: #000; <-- REMOVED THIS LINE TO FIX THE ISSUE */
     color: #feda4a;
     font-family: 'Orbitron', sans-serif;
     overflow-x: hidden;
 }
+
+/* --- Animated Starfield Background --- */
+#starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000; /* Added background here */
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* --- Upgraded Spaceship Style --- */
+.spaceship {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 20px solid #ccc; /* Creates a triangle shape */
+    filter: drop-shadow(0 0 4px #fff);
+    animation: fly linear infinite;
+}
+
+.spaceship:nth-child(1) {
+    border-top-width: 6px;
+    border-bottom-width: 6px;
+    border-left-width: 25px;
+    top: 20%;
+    animation-duration: 15s;
+    animation-delay: -5s;
+}
+.spaceship:nth-child(2) {
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 15px;
+    top: 50%;
+    animation-duration: 25s;
+    animation-delay: -10s;
+}
+.spaceship:nth-child(3) {
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 22px;
+    top: 80%;
+    animation-duration: 20s;
+    animation-delay: -2s;
+}
+
+@keyframes fly {
+    from {
+        transform: translateX(-200px);
+    }
+    to {
+        transform: translateX(calc(100vw + 200px));
+    }
+}
+
+
+/* New Text Box Style */
+.text-box {
+    background-color: rgba(20, 20, 35, 0.6); /* Semi-transparent dark blue */
+    border: 1px solid #4ac5ff;
+    padding: 1.5rem;
+    max-width: 800px;
+    margin: 1rem auto;
+    box-shadow: 0 0 15px rgba(74, 197, 255, 0.3);
+    text-align: center; /* Center text inside the box */
+}
+
 
 /* Loader Styles */
 .loader-container {
@@ -24,6 +95,7 @@ body, html {
     left: 0;
     width: 100%;
     z-index: 9999;
+    background-color: #000; /* Give loader its own background */
 }
 
 .loader-content {
@@ -214,6 +286,7 @@ nav ul {
 
 .hero {
     padding: 4rem 1rem;
+    text-align: center; /* Center hero content */
 }
 
 .star-wars-intro {
@@ -232,6 +305,7 @@ nav ul {
 
 .event-container {
     display: flex;
+    justify-content: center; /* Center the single card */
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -264,8 +338,9 @@ nav ul {
   transform: rotate3d(0.5, 1, 0, 30deg);
 }
 
+/* --- Event Card Color Change --- */
 .content-box {
-  background: #8ed500;
+  background: #0d3c59; /* New dark blue background */
   transition: all 0.5s ease-in-out;
   padding: 60px 25px 25px 25px;
   transform-style: preserve-3d;
@@ -273,7 +348,7 @@ nav ul {
 
 .content-box .card-title {
   display: inline-block;
-  color: #141414;
+  color: #feda4a; /* Yellow title */
   font-size: 25px;
   font-weight: 900;
   transition: all 0.5s ease-in-out;
@@ -288,7 +363,7 @@ nav ul {
   margin-top: 10px;
   font-size: 14px;
   font-weight: 700;
-  color: #141414;
+  color: #fff; /* White content text */
   transition: all 0.5s ease-in-out;
   transform: translate3d(0px, 0px, 30px);
 }
@@ -304,8 +379,8 @@ nav ul {
   font-weight: 900;
   font-size: 9px;
   text-transform: uppercase;
-  color: #8ed500;
-  background: #141414;
+  color: #0d3c59; /* Dark blue text */
+  background: #4ac5ff; /* Light blue background */
   padding: 0.5rem 0.7rem;
   transition: all 0.5s ease-in-out;
   transform: translate3d(0px, 0px, 20px);
@@ -322,7 +397,7 @@ nav ul {
   height: 60px;
   width: 60px;
   background: #141414;
-  border: 1px solid #8ed500;
+  border: 1px solid #4ac5ff; /* Light blue border */
   padding: 10px;
   transform: translate3d(0px, 0px, 80px);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 17px 10px -10px;
@@ -334,7 +409,7 @@ nav ul {
 }
 
 .date-box .month {
-  color: #8ed500;
+  color: #4ac5ff; /* Light blue */
   font-size: 9px;
   font-weight: 700;
 }
@@ -342,7 +417,7 @@ nav ul {
 .date-box .date {
   font-size: 20px;
   font-weight: 900;
-  color: #8ed500;
+  color: #4ac5ff; /* Light blue */
 }
 
 .stats-grid, .team-grid, .projects-grid {
@@ -453,7 +528,7 @@ footer {
 }
 
 
-/* Animations */
+/* --- Animations --- */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -463,60 +538,22 @@ footer {
   0%, 40%, 44%, 58%, 61%, 65%, 69%, 73%, 100% {
     transform: skewX(0deg);
   }
-
-  41% {
-    transform: skewX(10deg);
-  }
-
-  42% {
-    transform: skewX(-10deg);
-  }
-
-  59% {
-    transform: skewX(40deg) skewY(10deg);
-  }
-
-  60% {
-    transform: skewX(-40deg) skewY(-10deg);
-  }
-
-  63% {
-    transform: skewX(10deg) skewY(-5deg);
-  }
-
-  70% {
-    transform: skewX(-50deg) skewY(-20deg);
-  }
-
-  71% {
-    transform: skewX(10deg) skewY(-10deg);
-  }
+  41% { transform: skewX(10deg); }
+  42% { transform: skewX(-10deg); }
+  59% { transform: skewX(40deg) skewY(10deg); }
+  60% { transform: skewX(-40deg) skewY(-10deg); }
+  63% { transform: skewX(10deg) skewY(-5deg); }
+  70% { transform: skewX(-50deg) skewY(-20deg); }
+  71% { transform: skewX(10deg) skewY(-10deg); }
 }
 
 @keyframes glitch {
-  0% {
-    transform: translate(0);
-  }
-
-  20% {
-    transform: translate(-3px, 3px);
-  }
-
-  40% {
-    transform: translate(-3px, -3px);
-  }
-
-  60% {
-    transform: translate(3px, 3px);
-  }
-
-  80% {
-    transform: translate(3px, -3px);
-  }
-
-  to {
-    transform: translate(0);
-  }
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, 3px); }
+  40% { transform: translate(-3px, -3px); }
+  60% { transform: translate(3px, 3px); }
+  80% { transform: translate(3px, -3px); }
+  to { transform: translate(0); }
 }
 
 @keyframes shake {
@@ -529,4 +566,44 @@ footer {
 
 @keyframes blink {
     50% { opacity: 0; }
+}
+
+/* --- Responsive Design for Mobile and other devices --- */
+@media (max-width: 768px) {
+    .glitch {
+        font-size: 50px; /* Smaller glitch text on mobile */
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem; /* Smaller main title */
+    }
+
+    .star-wars-intro {
+        font-size: 1.5rem;
+    }
+
+    nav ul {
+        gap: 1rem;
+        flex-wrap: wrap; /* Allow nav items to wrap */
+        justify-content: center;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+    
+    .text-box {
+        padding: 1rem;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr; /* Stack team members */
+    }
+    
+    .language-selector {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
 }
