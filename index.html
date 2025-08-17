@@ -5,93 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="GMTC coding club">
     <link rel="icon" href="gmtclogo.png" type="image/x-icon">
-    <link rel="stylesheet" href="stylesheet.css">
-    <title>GMTC</title>
+    <link rel="stylesheet" href="style.css">
+    <title>GMTC Galactic Terminal</title>
 </head>
     
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="#top">Top</a></li>
+                <li><a href="#top">Home</a></li>
                 <li><a href="#events">Events</a></li>
-                <li><a href="archives.html">Projects</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#join">Join Us</a></li>
+                <li><a href="#archives">Archives</a></li>
+                <li><a href="#about-us">About Us</a></li>
+                <li><a href="#join-us">Join Us</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section id="top" class="hero">
-            <h1>GMTC Japan</h1>
-            <p>// Future creators' global makers' community //</p>
+            <div class="upcoming-event-card">
+                <h3>// Incoming Transmission: Upcoming Event</h3>
+                <p><strong>Event:</strong> Science Agora 2025: A New Hope</p>
+                <p><strong>Date:</strong> To Be Announced</p>
+                <p><strong>Location:</strong> Tokyo System</p>
+            </div>
+            <div class="star-wars-intro">
+                <p class="intro-text">A long time ago, in a galaxy far, far away....</p>
+            </div>
+            <h1>GMTC JAPAN</h1>
+            <p>// The future of the galaxy is in the hands of the makers //</p>
         </section>
 
         <section id="events">
             <h2>// Events</h2>
             <div class="event-card">
                 <p class="event-title">01</p>
-                <p class="event-description">Science Agora 2025</p>
+                <p class="event-description">Science Agora 2025: A New Hope</p>
             </div>
         </section>
+        
+        <section id="archives">
+            <h2>// Archives</h2>
+            <p>Access the top-secret blueprints from our past missions.</p>
+            <a href="projects.html" class="button">View Blueprints</a>
+        </section>
 
-        <section id="about">
-            <h2>// About</h2>
+        <section id="about-us">
+            <h2>// About Us</h2>
             <div class="about-content">
-                <p>GMTC Japan is a global makers' community for teenagers who are creating the future. Based in Tokyo, we develop projects and workshops centered on technology and creativity, providing opportunities for students to learn STEM through hands-on experience and connect with the world through engineering.</p>
+                <p>GMTC Japan is a global makers' alliance for the next generation of Jedi engineers. From our base in Tokyo, we launch projects and missions focused on technology and creativity, empowering young padawans to master the Force of STEM.</p>
                 <div class="stats-grid">
                     <div class="stat">
-                        <p class="stat-title">FOUNDED</p>
+                        <p class="stat-title">Founded</p>
                         <p class="stat-value">2024</p>
                     </div>
                     <div class="stat">
-                        <p class="stat-title">MEMBERS</p>
+                        <p class="stat-title">Members</p>
                         <p class="stat-value">5</p>
                     </div>
                     <div class="stat">
-                        <p class="stat-title">LOCATION</p>
-                        <p class="stat-value">TOKYO</p>
+                        <p class="stat-title">Location</p>
+                        <p class="stat-value">Tokyo System</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="team">
+                <h2 class="subtitle">// The Council</h2>
+                <div class="team-grid">
+                    <div class="team-member-card">
+                        <h3>Hanano Suzuki</h3>
+                        <p>Jedi Master / Founder</p>
+                        <div class="tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                        </div>
+                    </div>
+                    <div class="team-member-card">
+                        <h3>Ryuma Kojima</h3>
+                        <p>Jedi Master / Founder</p>
+                        <div class="tags">
+                            <span>C++</span>
+                        </div>
+                    </div>
+                    <div class="team-member-card">
+                        <h3>Maria Fujisawa</h3>
+                        <p>Jedi Master / Founder</p>
+                        <div class="tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="team">
-            <h2>// Meet the Team</h2>
-            <div class="team-grid">
-                <div class="team-member-card">
-                    <h3>Hanano Suzuki</h3>
-                    <p>Founder/Executive Director</p>
-                    <div class="tags">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                    </div>
-                </div>
-                <div class="team-member-card">
-                    <h3>Ryuma Kojima</h3>
-                    <p>Founder/Executive Director</p>
-                    <div class="tags">
-                        <span>C++</span>
-                    </div>
-                </div>
-                <div class="team-member-card">
-                    <h3>Maria Fujisawa</h3>
-                    <p>Founder/Executive Director</p>
-                    <div class="tags">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="join">
+        <section id="join-us">
             <h2>// Join Us</h2>
-            <div class="input-container">
-                <input type="text" class="input" placeholder="Your Email">
+             <div class="loading-section">
+                <h3>// Transmit your secure code to join</h3>
+                <div class="input-container">
+                    <input class="input" type="text" placeholder="Enter code..." />
+                </div>
             </div>
-            <a class="button" href="https://jp.surveymonkey.com/r/5L5MP86" target="_blank">Sign Up</a>
+            <a class="button" href="https://jp.surveymonkey.com/r/5L5MP86" target="_blank">Enlist Now</a>
         </section>
     </main>
 
@@ -100,7 +118,7 @@
             <a href="https://www.instagram.com/gmtcjapan/" target="_blank">Instagram</a>
             <a href="https://x.com/GMTCJapan" target="_blank">X (Twitter)</a>
         </div>
-        <p>&copy; 2024 GMTC Japan</p>
+        <p>May the Force be with you. &copy; 2024 GMTC Japan</p>
     </footer>
 </body>
 </html>
