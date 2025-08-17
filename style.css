@@ -1,16 +1,158 @@
-/* General Styles */
+/* General and Loader Styles */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap');
 
-body {
-    background-color: #000;
-    color: #feda4a; /* Star Wars yellow */
-    font-family: 'Orbitron', sans-serif;
+body, html {
     margin: 0;
     padding: 0;
-    text-align: center;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    color: #feda4a;
+    font-family: 'Orbitron', sans-serif;
+    overflow-x: hidden;
 }
 
-/* New, readable font for body text */
+/* Loader Styles */
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.loader-content {
+    animation: fadeIn 2s ease-in-out;
+}
+
+.sub-text {
+    color: #4ac5ff;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+}
+
+.glitch-wrapper {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+}
+
+.glitch {
+   position: relative;
+   font-size: 80px;
+   font-weight: 700;
+   line-height: 1.2;
+   color: #fff;
+   letter-spacing: 5px;
+   z-index: 1;
+   animation: shift 1s ease-in-out infinite alternate;
+}
+
+.glitch:before,
+.glitch:after {
+   display: block;
+   content: attr(data-glitch);
+   position: absolute;
+   top: 0;
+   left: 0;
+   opacity: 0.8;
+}
+
+.glitch:before {
+   animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+   color: #8ed500;
+   z-index: -1;
+}
+
+.glitch:after {
+   animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+   color: #4ac5ff;
+   z-index: -2;
+}
+
+/* Language Selector Buttons */
+.language-selector {
+    margin-top: 2rem;
+}
+
+.btn {
+  border: 1px solid;
+  background-color: transparent;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 10px 20px;
+  font-weight: 300;
+  margin: 0 10px;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  color: #feda4a;
+  border-color: #feda4a;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: black;
+}
+
+.btn .btn-text-one {
+  transition: all 0.2s;
+}
+
+.btn .btn-text-two {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  opacity: 0;
+  transition: all 0.2s;
+  color: #000;
+}
+
+.btn:hover .btn-text-one {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.btn:hover .btn-text-two {
+  top: 0;
+  opacity: 1;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #feda4a;
+  transform: scaleY(0);
+  transition: all 0.3s;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  transform: scaleY(1);
+}
+
+
+/* Main Site Styles */
+.site-content {
+    /* Styles for the main content area after loading */
+}
+
 .body-text, p, .stat-title, .role {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -52,7 +194,6 @@ a:hover {
     text-shadow: 0 0 10px #feda4a;
 }
 
-/* Header and Navigation */
 header {
     padding: 1rem;
     border-bottom: 2px solid #feda4a;
@@ -71,7 +212,6 @@ nav ul {
     gap: 1.5rem;
 }
 
-/* Hero Section */
 .hero {
     padding: 4rem 1rem;
 }
@@ -79,7 +219,7 @@ nav ul {
 .star-wars-intro {
     font-size: 2rem;
     font-weight: bold;
-    color: #4ac5ff; /* Light blue */
+    color: #4ac5ff;
     text-align: center;
     margin-bottom: 2rem;
 }
@@ -90,36 +230,19 @@ nav ul {
     animation: glitch 1s linear infinite;
 }
 
-/* Event Cards Section - FIX */
 .event-container {
     display: flex;
-    overflow-x: auto; /* Allows horizontal scrolling */
-    scroll-snap-type: x mandatory; /* Snaps to cards */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
     padding-bottom: 20px;
-    scrollbar-width: thin; /* For Firefox */
-    scrollbar-color: #feda4a #000; /* For Firefox */
 }
-/* For Chrome, Safari, and Opera */
-.event-container::-webkit-scrollbar {
-  height: 8px;
-}
-.event-container::-webkit-scrollbar-track {
-  background: #000;
-}
-.event-container::-webkit-scrollbar-thumb {
-  background-color: #feda4a;
-  border-radius: 10px;
-  border: 2px solid #000;
-}
-
-
 .parent {
   width: 300px;
-  min-width: 300px; /* Prevents card from shrinking */
+  min-width: 300px;
   padding: 20px;
   perspective: 1000px;
-  scroll-snap-align: center; /* Snaps this item to the center */
+  scroll-snap-align: center;
 }
 
 .card {
@@ -222,7 +345,6 @@ nav ul {
   color: #8ed500;
 }
 
-/* Grids */
 .stats-grid, .team-grid, .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -231,7 +353,6 @@ nav ul {
     margin: 0 auto;
 }
 
-/* Team Cards */
 .team-member-card {
     border: 2px solid #feda4a;
     padding: 1.5rem;
@@ -266,7 +387,6 @@ nav ul {
     color: #4ac5ff;
 }
 
-/* Tags */
 .tags span {
     display: inline-block;
     border: 1px solid #feda4a;
@@ -275,7 +395,6 @@ nav ul {
     font-size: 0.9rem;
 }
 
-/* Button */
 .button {
     display: inline-block;
     background-color: #feda4a;
@@ -291,7 +410,6 @@ nav ul {
     color: #feda4a;
 }
 
-/* Join Us Section Input */
 .input-container {
     position: relative;
     width: 100%;
@@ -317,7 +435,6 @@ nav ul {
     animation: shake 0.5s ease-in-out;
 }
 
-/* Footer */
 footer {
     padding: 2rem;
     border-top: 2px solid #feda4a;
@@ -337,28 +454,77 @@ footer {
 
 
 /* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes shift {
+  0%, 40%, 44%, 58%, 61%, 65%, 69%, 73%, 100% {
+    transform: skewX(0deg);
+  }
+
+  41% {
+    transform: skewX(10deg);
+  }
+
+  42% {
+    transform: skewX(-10deg);
+  }
+
+  59% {
+    transform: skewX(40deg) skewY(10deg);
+  }
+
+  60% {
+    transform: skewX(-40deg) skewY(-10deg);
+  }
+
+  63% {
+    transform: skewX(10deg) skewY(-5deg);
+  }
+
+  70% {
+    transform: skewX(-50deg) skewY(-20deg);
+  }
+
+  71% {
+    transform: skewX(10deg) skewY(-10deg);
+  }
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(-3px, 3px);
+  }
+
+  40% {
+    transform: translate(-3px, -3px);
+  }
+
+  60% {
+    transform: translate(3px, 3px);
+  }
+
+  80% {
+    transform: translate(3px, -3px);
+  }
+
+  to {
+    transform: translate(0);
+  }
+}
+
 @keyframes shake {
     0% { transform: translateX(0); }
     25% { transform: translateX(-5px) rotate(-5deg); }
     50% { transform: translateX(5px) rotate(5deg); }
     75% { transform: translateX(-5px) rotate(-5deg); }
     100% { transform: translateX(0); }
-}
-
-@keyframes glitch {
-    0% { transform: none; opacity: 1; }
-    7% { transform: skew(-0.5deg, -0.9deg); opacity: 0.75; }
-    10% { transform: none; opacity: 1; }
-    27% { transform: none; opacity: 1; }
-    30% { transform: skew(0.8deg, -0.1deg); opacity: 0.75; }
-    35% { transform: none; opacity: 1; }
-    52% { transform: none; opacity: 1; }
-    55% { transform: skew(-1deg, 0.2deg); opacity: 0.75; }
-    50% { transform: none; opacity: 1; }
-    72% { transform: none; opacity: 1; }
-    75% { transform: skew(0.4deg, 1deg); opacity: 0.75; }
-    80% { transform: none; opacity: 1; }
-    100% { transform: none; opacity: 1; }
 }
 
 @keyframes blink {
