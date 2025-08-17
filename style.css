@@ -1,5 +1,5 @@
 /* General Styles */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap');
 
 body {
     background-color: #000;
@@ -10,6 +10,13 @@ body {
     text-align: center;
 }
 
+/* New, readable font for body text */
+.body-text, p, .stat-title, .role {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
 main {
     padding: 2rem;
 }
@@ -18,7 +25,8 @@ section {
     margin-bottom: 4rem;
 }
 
-h1, h2, h3 {
+h1, h2, h3, .card-title, .date, .month {
+    font-family: 'Orbitron', sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -32,12 +40,6 @@ h2 {
     font-size: 1.2rem;
     margin-top: 3rem;
     margin-bottom: 2rem;
-}
-
-p {
-    line-height: 1.6;
-    max-width: 600px;
-    margin: 0 auto 1rem auto;
 }
 
 a {
@@ -88,20 +90,36 @@ nav ul {
     animation: glitch 1s linear infinite;
 }
 
-/* Event Cards Section */
+/* Event Cards Section - FIX */
 .event-container {
     display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS */
+    overflow-x: auto; /* Allows horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Snaps to cards */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
     padding-bottom: 20px;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #feda4a #000; /* For Firefox */
 }
+/* For Chrome, Safari, and Opera */
+.event-container::-webkit-scrollbar {
+  height: 8px;
+}
+.event-container::-webkit-scrollbar-track {
+  background: #000;
+}
+.event-container::-webkit-scrollbar-thumb {
+  background-color: #feda4a;
+  border-radius: 10px;
+  border: 2px solid #000;
+}
+
+
 .parent {
   width: 300px;
-  min-width: 300px;
+  min-width: 300px; /* Prevents card from shrinking */
   padding: 20px;
   perspective: 1000px;
-  scroll-snap-align: center;
+  scroll-snap-align: center; /* Snaps this item to the center */
 }
 
 .card {
@@ -145,7 +163,7 @@ nav ul {
 
 .content-box .card-content {
   margin-top: 10px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   color: #141414;
   transition: all 0.5s ease-in-out;
