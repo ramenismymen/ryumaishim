@@ -6,6 +6,7 @@ body, html {
     padding: 0;
     width: 100%;
     height: 100%;
+    /* background-color: #000; <-- REMOVED THIS LINE TO FIX THE ISSUE */
     color: #feda4a;
     font-family: 'Orbitron', sans-serif;
     overflow-x: hidden;
@@ -18,22 +19,23 @@ body, html {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #000;
+    background-color: #000; /* Added background here */
     z-index: -1;
     overflow: hidden;
 }
 
-/* Spaceship styles etc. ... */
+/* --- Upgraded Spaceship Style --- */
 .spaceship {
     position: absolute;
     width: 0;
     height: 0;
     border-top: 4px solid transparent;
     border-bottom: 4px solid transparent;
-    border-left: 20px solid #ccc;
+    border-left: 20px solid #ccc; /* Creates a triangle shape */
     filter: drop-shadow(0 0 4px #fff);
     animation: fly linear infinite;
 }
+
 .spaceship:nth-child(1) {
     border-top-width: 6px;
     border-bottom-width: 6px;
@@ -58,23 +60,30 @@ body, html {
     animation-duration: 20s;
     animation-delay: -2s;
 }
+
 @keyframes fly {
-    from { transform: translateX(-200px); }
-    to { transform: translateX(calc(100vw + 200px)); }
+    from {
+        transform: translateX(-200px);
+    }
+    to {
+        transform: translateX(calc(100vw + 200px));
+    }
 }
 
-/* Text Box Style */
+
+/* New Text Box Style */
 .text-box {
-    background-color: rgba(20, 20, 35, 0.6);
+    background-color: rgba(20, 20, 35, 0.6); /* Semi-transparent dark blue */
     border: 1px solid #4ac5ff;
     padding: 1.5rem;
     max-width: 800px;
     margin: 1rem auto;
     box-shadow: 0 0 15px rgba(74, 197, 255, 0.3);
-    text-align: center;
+    text-align: center; /* Center text inside the box */
 }
 
-/* Loader Styles ... */
+
+/* Loader Styles */
 .loader-container {
     display: flex;
     justify-content: center;
@@ -86,9 +95,13 @@ body, html {
     left: 0;
     width: 100%;
     z-index: 9999;
-    background-color: #000;
+    background-color: #000; /* Give loader its own background */
 }
-.loader-content { animation: fadeIn 2s ease-in-out; }
+
+.loader-content {
+    animation: fadeIn 2s ease-in-out;
+}
+
 .sub-text {
     color: #4ac5ff;
     letter-spacing: 2px;
@@ -96,6 +109,7 @@ body, html {
     margin-bottom: 3rem;
     text-transform: uppercase;
 }
+
 .glitch-wrapper {
    width: 100%;
    height: 100%;
@@ -104,6 +118,7 @@ body, html {
    justify-content: center;
    text-align: center;
 }
+
 .glitch {
    position: relative;
    font-size: 80px;
@@ -114,6 +129,7 @@ body, html {
    z-index: 1;
    animation: shift 1s ease-in-out infinite alternate;
 }
+
 .glitch:before,
 .glitch:after {
    display: block;
@@ -123,17 +139,24 @@ body, html {
    left: 0;
    opacity: 0.8;
 }
+
 .glitch:before {
    animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
    color: #8ed500;
    z-index: -1;
 }
+
 .glitch:after {
    animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
    color: #4ac5ff;
    z-index: -2;
 }
-.language-selector { margin-top: 2rem; }
+
+/* Language Selector Buttons */
+.language-selector {
+    margin-top: 2rem;
+}
+
 .btn {
   border: 1px solid;
   background-color: transparent;
@@ -149,8 +172,15 @@ body, html {
   border-color: #feda4a;
   cursor: pointer;
 }
-.btn:hover { color: black; }
-.btn .btn-text-one { transition: all 0.2s; }
+
+.btn:hover {
+  color: black;
+}
+
+.btn .btn-text-one {
+  transition: all 0.2s;
+}
+
 .btn .btn-text-two {
   position: absolute;
   top: 100%;
@@ -161,14 +191,17 @@ body, html {
   transition: all 0.2s;
   color: #000;
 }
+
 .btn:hover .btn-text-one {
   transform: translateY(-100%);
   opacity: 0;
 }
+
 .btn:hover .btn-text-two {
   top: 0;
   opacity: 1;
 }
+
 .btn::before {
   content: "";
   position: absolute;
@@ -181,36 +214,58 @@ body, html {
   transition: all 0.3s;
   z-index: -1;
 }
-.btn:hover::before { transform: scaleY(1); }
+
+.btn:hover::before {
+  transform: scaleY(1);
+}
+
 
 /* Main Site Styles */
+.site-content {
+    /* Styles for the main content area after loading */
+}
+
 .body-text, p, .stat-title, .role {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     line-height: 1.7;
 }
-main { padding: 2rem; }
-section { margin-bottom: 4rem; }
+
+main {
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 4rem;
+}
+
 h1, h2, h3, .card-title, .date, .month {
     font-family: 'Orbitron', sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
+
 h2 {
     font-size: 1.5rem;
     margin-bottom: 2rem;
 }
+
 .subtitle {
     font-size: 1.2rem;
     margin-top: 3rem;
     margin-bottom: 2rem;
 }
+
 a {
     color: #feda4a;
     text-decoration: none;
     transition: all 0.3s ease;
 }
-a:hover { text-shadow: 0 0 10px #feda4a; }
+
+a:hover {
+    text-shadow: 0 0 10px #feda4a;
+}
+
 header {
     padding: 1rem;
     border-bottom: 2px solid #feda4a;
@@ -219,6 +274,7 @@ header {
     background-color: #000;
     z-index: 1000;
 }
+
 nav ul {
     list-style: none;
     padding: 0;
@@ -227,10 +283,12 @@ nav ul {
     justify-content: center;
     gap: 1.5rem;
 }
+
 .hero {
     padding: 4rem 1rem;
-    text-align: center;
+    text-align: center; /* Center hero content */
 }
+
 .star-wars-intro {
     font-size: 2rem;
     font-weight: bold;
@@ -238,14 +296,16 @@ nav ul {
     text-align: center;
     margin-bottom: 2rem;
 }
+
 .hero h1 {
     font-size: 3rem;
     margin: 0;
     animation: glitch 1s linear infinite;
 }
+
 .event-container {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Center the single card */
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -258,6 +318,7 @@ nav ul {
   perspective: 1000px;
   scroll-snap-align: center;
 }
+
 .card {
   padding-top: 50px;
   border: 3px solid #141414;
@@ -271,34 +332,46 @@ nav ul {
   box-shadow: rgba(142, 142, 142, 0.3) 0px 30px 30px -10px;
   transition: all 0.5s ease-in-out;
 }
-/* THIS IS THE FIX FOR THE 3D TILT ANIMATION. IT IS REMOVED. */
+
 .card:hover {
   background-position: -100px 100px, -100px 100px;
+ 
 }
+
+/* --- Event Card Color Change --- */
 .content-box {
-  background: #0d3c59;
+  background: #0d3c59; /* New dark blue background */
   transition: all 0.5s ease-in-out;
   padding: 60px 25px 25px 25px;
   transform-style: preserve-3d;
 }
+
 .content-box .card-title {
   display: inline-block;
-  color: #feda4a;
+  color: #feda4a; /* Yellow title */
   font-size: 25px;
   font-weight: 900;
   transition: all 0.5s ease-in-out;
   transform: translate3d(0px, 0px, 50px);
 }
-.content-box .card-title:hover { transform: translate3d(0px, 0px, 60px); }
+
+.content-box .card-title:hover {
+  transform: translate3d(0px, 0px, 60px);
+}
+
 .content-box .card-content {
   margin-top: 10px;
   font-size: 14px;
   font-weight: 700;
-  color: #fff;
+  color: #fff; /* White content text */
   transition: all 0.5s ease-in-out;
   transform: translate3d(0px, 0px, 30px);
 }
-.content-box .card-content:hover { transform: translate3d(0px, 0px, 60px); }
+
+.content-box .card-content:hover {
+  transform: translate3d(0px, 0px, 60px);
+}
+
 .content-box .see-more {
   cursor: pointer;
   margin-top: 1rem;
@@ -306,13 +379,17 @@ nav ul {
   font-weight: 900;
   font-size: 9px;
   text-transform: uppercase;
-  color: #0d3c59;
-  background: #4ac5ff;
+  color: #0d3c59; /* Dark blue text */
+  background: #4ac5ff; /* Light blue background */
   padding: 0.5rem 0.7rem;
   transition: all 0.5s ease-in-out;
   transform: translate3d(0px, 0px, 20px);
 }
-.content-box .see-more:hover { transform: translate3d(0px, 0px, 60px); }
+
+.content-box .see-more:hover {
+  transform: translate3d(0px, 0px, 60px);
+}
+
 .date-box {
   position: absolute;
   top: 30px;
@@ -320,25 +397,29 @@ nav ul {
   height: 60px;
   width: 60px;
   background: #141414;
-  border: 1px solid #4ac5ff;
+  border: 1px solid #4ac5ff; /* Light blue border */
   padding: 10px;
   transform: translate3d(0px, 0px, 80px);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 17px 10px -10px;
 }
+
 .date-box span {
   display: block;
   text-align: center;
 }
+
 .date-box .month {
-  color: #4ac5ff;
+  color: #4ac5ff; /* Light blue */
   font-size: 9px;
   font-weight: 700;
 }
+
 .date-box .date {
   font-size: 20px;
   font-weight: 900;
-  color: #4ac5ff;
+  color: #4ac5ff; /* Light blue */
 }
+
 .stats-grid, .team-grid, .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -346,21 +427,25 @@ nav ul {
     max-width: 1000px;
     margin: 0 auto;
 }
+
 .team-member-card {
     border: 2px solid #feda4a;
     padding: 1.5rem;
     margin-bottom: 1rem;
     transition: all 0.3s ease;
 }
+
 .team-member-card:hover {
     background-color: #feda4a;
     color: #000;
 }
+
 .team-member-card .role {
     font-size: 0.9rem;
     color: #8ed500;
     margin-bottom: 1rem;
 }
+
 .team-member-card .page-link {
     display: inline-block;
     margin-top: 1rem;
@@ -371,10 +456,12 @@ nav ul {
     text-decoration: none;
     border: 2px solid #4ac5ff;
 }
+
 .team-member-card:hover .page-link {
     background-color: #000;
     color: #4ac5ff;
 }
+
 .tags span {
     display: inline-block;
     border: 1px solid #feda4a;
@@ -382,6 +469,7 @@ nav ul {
     margin: 0.2rem;
     font-size: 0.9rem;
 }
+
 .button {
     display: inline-block;
     background-color: #feda4a;
@@ -391,15 +479,43 @@ nav ul {
     font-weight: bold;
     margin-top: 1rem;
 }
+
 .button:hover {
     background-color: #000;
     color: #feda4a;
 }
+
+.input-container {
+    position: relative;
+    width: 100%;
+    max-width: 270px;
+    margin: 1rem auto;
+}
+
+.input {
+    width: 100%;
+    height: 60px;
+    padding: 12px;
+    font-size: 18px;
+    font-family: "Courier New", monospace;
+    color: #000;
+    background-color: #fff;
+    border: 4px solid #fff;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 8px 8px 0 #fff;
+}
+
+.input:focus {
+    animation: shake 0.5s ease-in-out;
+}
+
 footer {
     padding: 2rem;
     border-top: 2px solid #feda4a;
     margin-top: 4rem;
 }
+
 .social-links {
     margin-bottom: 1rem;
 }
@@ -411,10 +527,17 @@ footer {
      text-shadow: 0 0 10px #4ac5ff;
 }
 
-/* Animations ... */
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* --- Animations --- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 @keyframes shift {
-  0%, 40%, 44%, 58%, 61%, 65%, 69%, 73%, 100% { transform: skewX(0deg); }
+  0%, 40%, 44%, 58%, 61%, 65%, 69%, 73%, 100% {
+    transform: skewX(0deg);
+  }
   41% { transform: skewX(10deg); }
   42% { transform: skewX(-10deg); }
   59% { transform: skewX(40deg) skewY(10deg); }
@@ -423,6 +546,7 @@ footer {
   70% { transform: skewX(-50deg) skewY(-20deg); }
   71% { transform: skewX(10deg) skewY(-10deg); }
 }
+
 @keyframes glitch {
   0% { transform: translate(0); }
   20% { transform: translate(-3px, 3px); }
@@ -432,34 +556,73 @@ footer {
   to { transform: translate(0); }
 }
 
-/* --- Responsive Design --- */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px) rotate(-5deg); }
+    50% { transform: translateX(5px) rotate(5deg); }
+    75% { transform: translateX(-5px) rotate(-5deg); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* --- Responsive Design for Mobile and other devices --- */
 @media (max-width: 768px) {
-    .glitch { font-size: 50px; }
-    .hero h1 { font-size: 2.5rem; }
-    .star-wars-intro { font-size: 1.5rem; }
+    .glitch {
+        font-size: 50px; /* Smaller glitch text on mobile */
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem; /* Smaller main title */
+    }
+
+    .star-wars-intro {
+        font-size: 1.5rem;
+    }
+
     nav ul {
         gap: 1rem;
-        flex-wrap: wrap;
+        flex-wrap: wrap; /* Allow nav items to wrap */
         justify-content: center;
     }
-    main { padding: 1rem; }
-    .text-box { padding: 1rem; }
-    .team-grid { grid-template-columns: 1fr; }
+    
+    
+    main {
+        padding: 1rem;
+    }
+    
+    .text-box {
+        padding: 1rem;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr; /* Stack team members */
+    }
+    
     .language-selector {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1rem;
     }
-}
+    /* --- existing styles above --- */
 
-/* --- THIS IS THE FIX FOR CENTERING --- */
-/* It should be OUTSIDE the @media block */
 section h2, footer {
     text-align: center;
 }
 
-/* THIS IS THE FIX FOR THE BUTTON AND TWITTER FEED */
-#archives, #twitter-feed, #twitter-feed-jp {
+/* --- existing styles below --- */
+}
+
+
+/* --- THIS SHOULD BE AT THE VERY END OF YOUR CSS FILE --- */
+/* --- Make sure it is NOT inside the @media block --- */
+
+section h2, footer {
     text-align: center;
 }
+
+
+
