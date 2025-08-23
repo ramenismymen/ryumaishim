@@ -617,5 +617,13 @@ section h2, footer {
 }
 
 
+/* --- THIS SHOULD BE AT THE VERY END OF YOUR CSS FILE --- */
+/* --- Make sure it is NOT inside the @media block --- */
+
+section h2, footer {
+    text-align: center;
+}
+
+
 
 
