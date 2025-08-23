@@ -11,7 +11,6 @@ body, html {
     overflow-x: hidden;
 }
 
-/* --- Animated Starfield Background --- */
 #starfield {
     position: fixed;
     top: 0;
@@ -23,7 +22,6 @@ body, html {
     overflow: hidden;
 }
 
-/* Spaceship styles etc. ... */
 .spaceship {
     position: absolute;
     width: 0;
@@ -34,36 +32,15 @@ body, html {
     filter: drop-shadow(0 0 4px #fff);
     animation: fly linear infinite;
 }
-.spaceship:nth-child(1) {
-    border-top-width: 6px;
-    border-bottom-width: 6px;
-    border-left-width: 25px;
-    top: 20%;
-    animation-duration: 15s;
-    animation-delay: -5s;
-}
-.spaceship:nth-child(2) {
-    border-top-width: 2px;
-    border-bottom-width: 2px;
-    border-left-width: 15px;
-    top: 50%;
-    animation-duration: 25s;
-    animation-delay: -10s;
-}
-.spaceship:nth-child(3) {
-    border-top-width: 5px;
-    border-bottom-width: 5px;
-    border-left-width: 22px;
-    top: 80%;
-    animation-duration: 20s;
-    animation-delay: -2s;
-}
+.spaceship:nth-child(1) { top: 20%; animation-duration: 15s; animation-delay: -5s; }
+.spaceship:nth-child(2) { top: 50%; animation-duration: 25s; animation-delay: -10s; }
+.spaceship:nth-child(3) { top: 80%; animation-duration: 20s; animation-delay: -2s; }
+
 @keyframes fly {
     from { transform: translateX(-200px); }
     to { transform: translateX(calc(100vw + 200px)); }
 }
 
-/* Text Box Style */
 .text-box {
     background-color: rgba(20, 20, 35, 0.6);
     border: 1px solid #4ac5ff;
@@ -74,392 +51,68 @@ body, html {
     text-align: center;
 }
 
-/* Loader Styles ... */
-.loader-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    text-align: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
-    background-color: #000;
-}
+/* Loader Styles */
+.loader-container { display: flex; justify-content: center; align-items: center; height: 100%; text-align: center; position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; background-color: #000; }
 .loader-content { animation: fadeIn 2s ease-in-out; }
-.sub-text {
-    color: #4ac5ff;
-    letter-spacing: 2px;
-    font-size: 1rem;
-    margin-bottom: 3rem;
-    text-transform: uppercase;
-}
-.glitch-wrapper {
-   width: 100%;
-   height: 100%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   text-align: center;
-}
-.glitch {
-   position: relative;
-   font-size: 80px;
-   font-weight: 700;
-   line-height: 1.2;
-   color: #fff;
-   letter-spacing: 5px;
-   z-index: 1;
-   animation: shift 1s ease-in-out infinite alternate;
-}
-.glitch:before,
-.glitch:after {
-   display: block;
-   content: attr(data-glitch);
-   position: absolute;
-   top: 0;
-   left: 0;
-   opacity: 0.8;
-}
-.glitch:before {
-   animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-   color: #8ed500;
-   z-index: -1;
-}
-.glitch:after {
-   animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
-   color: #4ac5ff;
-   z-index: -2;
-}
+.sub-text { color: #4ac5ff; letter-spacing: 2px; font-size: 1rem; margin-bottom: 3rem; text-transform: uppercase; }
+.glitch { position: relative; font-size: 80px; font-weight: 700; color: #fff; letter-spacing: 5px; z-index: 1; animation: shift 1s ease-in-out infinite alternate; }
+.glitch:before, .glitch:after { display: block; content: attr(data-glitch); position: absolute; top: 0; left: 0; opacity: 0.8; }
+.glitch:before { animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite; color: #8ed500; z-index: -1; }
+.glitch:after { animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite; color: #4ac5ff; z-index: -2; }
 .language-selector { margin-top: 2rem; }
-.btn {
-  border: 1px solid;
-  background-color: transparent;
-  text-transform: uppercase;
-  font-size: 14px;
-  padding: 10px 20px;
-  font-weight: 300;
-  margin: 0 10px;
-  text-decoration: none;
-  position: relative;
-  display: inline-block;
-  color: #feda4a;
-  border-color: #feda4a;
-  cursor: pointer;
-}
+.btn { border: 1px solid; background-color: transparent; text-transform: uppercase; font-size: 14px; padding: 10px 20px; font-weight: 300; margin: 0 10px; text-decoration: none; position: relative; display: inline-block; color: #feda4a; border-color: #feda4a; cursor: pointer; }
 .btn:hover { color: black; }
 .btn .btn-text-one { transition: all 0.2s; }
-.btn .btn-text-two {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  padding: 10px 0;
-  opacity: 0;
-  transition: all 0.2s;
-  color: #000;
-}
-.btn:hover .btn-text-one {
-  transform: translateY(-100%);
-  opacity: 0;
-}
-.btn:hover .btn-text-two {
-  top: 0;
-  opacity: 1;
-}
-.btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #feda4a;
-  transform: scaleY(0);
-  transition: all 0.3s;
-  z-index: -1;
-}
+.btn .btn-text-two { position: absolute; top: 100%; left: 0; width: 100%; padding: 10px 0; opacity: 0; transition: all 0.2s; color: #000; }
+.btn:hover .btn-text-one { transform: translateY(-100%); opacity: 0; }
+.btn:hover .btn-text-two { top: 0; opacity: 1; }
+.btn::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #feda4a; transform: scaleY(0); transition: all 0.3s; z-index: -1; }
 .btn:hover::before { transform: scaleY(1); }
 
 /* Main Site Styles */
-.body-text, p, .stat-title, .role {
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    line-height: 1.7;
-}
+.body-text, p { font-family: 'Roboto', sans-serif; font-size: 16px; line-height: 1.7; }
 main { padding: 2rem; }
 section { margin-bottom: 4rem; }
-h1, h2, h3, .card-title, .date, .month {
-    font-family: 'Orbitron', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-h2 {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-}
-.subtitle {
-    font-size: 1.2rem;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-}
-a {
-    color: #feda4a;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
+h1, h2, h3, .card-title { font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
+h2 { font-size: 1.5rem; margin-bottom: 2rem; }
+.subtitle { font-size: 1.2rem; margin-top: 3rem; margin-bottom: 2rem; }
+a { color: #feda4a; text-decoration: none; transition: all 0.3s ease; }
 a:hover { text-shadow: 0 0 10px #feda4a; }
-header {
-    padding: 1rem;
-    border-bottom: 2px solid #feda4a;
-    position: sticky;
-    top: 0;
-    background-color: #000;
-    z-index: 1000;
-}
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-}
-.hero {
-    padding: 4rem 1rem;
-    text-align: center;
-}
-.star-wars-intro {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #4ac5ff;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-.hero h1 {
-    font-size: 3rem;
-    margin: 0;
-    animation: glitch 1s linear infinite;
-}
-.event-container {
-    display: flex;
-    justify-content: center;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 20px;
-}
-.parent {
-  width: 300px;
-  min-width: 300px;
-  padding: 20px;
-  perspective: 1000px;
-  scroll-snap-align: center;
-}
-.card {
-  padding-top: 50px;
-  border: 3px solid #141414;
-  transform-style: preserve-3d;
-  background: linear-gradient(135deg, #0000 18.75%, #f3f3f3 0 31.25%, #0000 0),
-    repeating-linear-gradient(45deg, #f3f3f3 -6.25% 6.25%, #141414 0 18.75%);
-  background-size: 60px 60px;
-  background-position: 0 0, 0 0;
-  background-color: #141414;
-  width: 100%;
-  box-shadow: rgba(142, 142, 142, 0.3) 0px 30px 30px -10px;
-  transition: all 0.5s ease-in-out;
-}
-/* THIS IS THE FIX FOR THE 3D TILT ANIMATION. IT IS REMOVED. */
-.card:hover {
-  background-position: -100px 100px, -100px 100px;
-}
-.content-box {
-  background: #0d3c59;
-  transition: all 0.5s ease-in-out;
-  padding: 60px 25px 25px 25px;
-  transform-style: preserve-3d;
-}
-.content-box .card-title {
-  display: inline-block;
-  color: #feda4a;
-  font-size: 25px;
-  font-weight: 900;
-  transition: all 0.5s ease-in-out;
-  transform: translate3d(0px, 0px, 50px);
-}
-.content-box .card-title:hover { transform: translate3d(0px, 0px, 60px); }
-.content-box .card-content {
-  margin-top: 10px;
-  font-size: 14px;
-  font-weight: 700;
-  color: #fff;
-  transition: all 0.5s ease-in-out;
-  transform: translate3d(0px, 0px, 30px);
-}
-.content-box .card-content:hover { transform: translate3d(0px, 0px, 60px); }
-.content-box .see-more {
-  cursor: pointer;
-  margin-top: 1rem;
-  display: inline-block;
-  font-weight: 900;
-  font-size: 9px;
-  text-transform: uppercase;
-  color: #0d3c59;
-  background: #4ac5ff;
-  padding: 0.5rem 0.7rem;
-  transition: all 0.5s ease-in-out;
-  transform: translate3d(0px, 0px, 20px);
-}
-.content-box .see-more:hover { transform: translate3d(0px, 0px, 60px); }
-.date-box {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  height: 60px;
-  width: 60px;
-  background: #141414;
-  border: 1px solid #4ac5ff;
-  padding: 10px;
-  transform: translate3d(0px, 0px, 80px);
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 17px 10px -10px;
-}
-.date-box span {
-  display: block;
-  text-align: center;
-}
-.date-box .month {
-  color: #4ac5ff;
-  font-size: 9px;
-  font-weight: 700;
-}
-.date-box .date {
-  font-size: 20px;
-  font-weight: 900;
-  color: #4ac5ff;
-}
-.stats-grid, .team-grid, .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-.team-member-card {
-    border: 2px solid #feda4a;
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-    transition: all 0.3s ease;
-}
-.team-member-card:hover {
-    background-color: #feda4a;
-    color: #000;
-}
-.team-member-card .role {
-    font-size: 0.9rem;
-    color: #8ed500;
-    margin-bottom: 1rem;
-}
-.team-member-card .page-link {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: #4ac5ff;
-    color: #000;
-    font-weight: bold;
-    text-decoration: none;
-    border: 2px solid #4ac5ff;
-}
-.team-member-card:hover .page-link {
-    background-color: #000;
-    color: #4ac5ff;
-}
-.tags span {
-    display: inline-block;
-    border: 1px solid #feda4a;
-    padding: 0.3rem 0.8rem;
-    margin: 0.2rem;
-    font-size: 0.9rem;
-}
-.button {
-    display: inline-block;
-    background-color: #feda4a;
-    color: #000;
-    padding: 10px 20px;
-    border: 2px solid #feda4a;
-    font-weight: bold;
-    margin-top: 1rem;
-}
-.button:hover {
-    background-color: #000;
-    color: #feda4a;
-}
-footer {
-    padding: 2rem;
-    border-top: 2px solid #feda4a;
-    margin-top: 4rem;
-}
-.social-links {
-    margin-bottom: 1rem;
-}
-.social-links a {
-    margin: 0 1rem;
-    color: #4ac5ff;
-}
-.social-links a:hover {
-     text-shadow: 0 0 10px #4ac5ff;
-}
+header { padding: 1rem; border-bottom: 2px solid #feda4a; position: sticky; top: 0; background-color: #000; z-index: 1000; }
+nav ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; gap: 1.5rem; }
+.hero { padding: 4rem 1rem; text-align: center; }
+.star-wars-intro { font-size: 2rem; font-weight: bold; color: #4ac5ff; text-align: center; margin-bottom: 2rem; }
+.hero h1 { font-size: 3rem; margin: 0; animation: glitch 1s linear infinite; }
+.event-container { display: flex; justify-content: center; }
+.parent { width: 300px; min-width: 300px; padding: 20px; perspective: 1000px; }
+.card { padding-top: 50px; border: 3px solid #141414; background-color: #141414; width: 100%; box-shadow: rgba(142, 142, 142, 0.3) 0px 30px 30px -10px; transition: all 0.5s ease-in-out; }
+.card:hover { background-position: -100px 100px, -100px 100px; }
+.content-box { background: #0d3c59; padding: 60px 25px 25px 25px; }
+.date-box { position: absolute; top: 30px; right: 30px; height: 60px; width: 60px; background: #141414; border: 1px solid #4ac5ff; padding: 10px; }
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+.team-member-card { border: 2px solid #feda4a; padding: 1.5rem; margin-bottom: 1rem; }
+.button { display: inline-block; background-color: #feda4a; color: #000; padding: 10px 20px; border: 2px solid #feda4a; font-weight: bold; margin-top: 1rem; }
+.button:hover { background-color: #000; color: #feda4a; }
+footer { padding: 2rem; border-top: 2px solid #feda4a; margin-top: 4rem; }
+.social-links { margin-bottom: 1rem; }
+.social-links a { margin: 0 1rem; color: #4ac5ff; }
 
-/* Animations ... */
+/* Animations */
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes shift {
-  0%, 40%, 44%, 58%, 61%, 65%, 69%, 73%, 100% { transform: skewX(0deg); }
-  41% { transform: skewX(10deg); }
-  42% { transform: skewX(-10deg); }
-  59% { transform: skewX(40deg) skewY(10deg); }
-  60% { transform: skewX(-40deg) skewY(-10deg); }
-  63% { transform: skewX(10deg) skewY(-5deg); }
-  70% { transform: skewX(-50deg) skewY(-20deg); }
-  71% { transform: skewX(10deg) skewY(-10deg); }
-}
-@keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-3px, 3px); }
-  40% { transform: translate(-3px, -3px); }
-  60% { transform: translate(3px, 3px); }
-  80% { transform: translate(3px, -3px); }
-  to { transform: translate(0); }
-}
+@keyframes shift { 0%, 100% { transform: skewX(0deg); } 41% { transform: skewX(10deg); } 42% { transform: skewX(-10deg); } 59% { transform: skewX(40deg) skewY(10deg); } 60% { transform: skewX(-40deg) skewY(-10deg); } 63% { transform: skewX(10deg) skewY(-5deg); } 70% { transform: skewX(-50deg) skewY(-20deg); } 71% { transform: skewX(10deg) skewY(-10deg); } }
+@keyframes glitch { 0%, 100% { transform: translate(0); } 20% { transform: translate(-3px, 3px); } 40% { transform: translate(-3px, -3px); } 60% { transform: translate(3px, 3px); } 80% { transform: translate(3px, -3px); } }
 
-/* --- Responsive Design --- */
+/* Responsive Design */
 @media (max-width: 768px) {
     .glitch { font-size: 50px; }
     .hero h1 { font-size: 2.5rem; }
     .star-wars-intro { font-size: 1.5rem; }
-    nav ul {
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+    nav ul { gap: 1rem; flex-wrap: wrap; justify-content: center; }
     main { padding: 1rem; }
     .text-box { padding: 1rem; }
     .team-grid { grid-template-columns: 1fr; }
-    .language-selector {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
 }
 
-/* --- THIS IS THE FIX FOR CENTERING --- */
-/* It should be OUTSIDE the @media block */
-section h2, footer {
-    text-align: center;
-}
-
-/* THIS IS THE FIX FOR THE BUTTON AND TWITTER FEED */
-#archives, #twitter-feed, #twitter-feed-jp {
-    text-align: center;
-}
+/* Centering Rules */
+section h2, footer { text-align: center; }
+#archives, #join-us, #join-us-jp, #twitter-feed, #twitter-feed-jp { text-align: center; }
