@@ -588,6 +588,7 @@ footer {
         justify-content: center;
     }
     
+    
     main {
         padding: 1rem;
     }
@@ -606,4 +607,15 @@ footer {
         align-items: center;
         gap: 1rem;
     }
+    /* --- existing styles above --- */
+
+section h2, footer {
+    text-align: center;
 }
+
+/* --- existing styles below --- */
+}
+
+
+
+
