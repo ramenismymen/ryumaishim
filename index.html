@@ -44,6 +44,7 @@
             <nav>
                 <ul>
                     <li><a href="#top">Home</a></li>
+                    <li><a href="#events">Events</a></li>
                     <li><a href="#about-us">About Us</a></li>
                     <li><a href="#archives">Archives</a></li>
                     <li><a href="#join-us">Join Us</a></li>
@@ -51,9 +52,9 @@
             </nav>
         </header>
 
-        <main style="padding-top: 5rem;">
+        <main>
             <section id="events">
-                <h2>// Upcoming Events</h2>
+                <h2 style="color: #4ac5ff; margin-bottom: 0.5rem; margin-top: -2rem;">// Upcoming Events</h2>
                  <div class="event-container">
                     <div class="parent">
                         <div class="card">
@@ -95,17 +96,44 @@
                         <div class="team-member-card">
                             <h3>Hanano Suzuki</h3>
                             <p class="role body-text">Co-founder</p>
+                            <div class="tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                            </div>
                             <a href="pagenotfound.html" class="page-link">Go to my page</a>
                         </div>
                         <div class="team-member-card">
                             <h3>Ryuma Kojima</h3>
                             <p class="role body-text">Co-founder</p>
+                            <div class="tags">
+                                <span>C++</span>
+                            </div>
                              <a href="pagenotfound.html" class="page-link">Go to my page</a>
                         </div>
                         <div class="team-member-card">
                             <h3>Maria Fujisawa</h3>
                             <p class="role body-text">Co-founder</p>
+                            <div class="tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                            </div>
                              <a href="pagenotfound.html" class="page-link">Go to my page</a>
+                        </div>
+                         <div class="team-member-card">
+                            <h3>Kenji Tanaka</h3>
+                            <p class="role body-text">Member</p>
+                            <div class="tags">
+                                <span>Python</span>
+                            </div>
+                             <a href="pagenotfound.html" class="page-link">Go to my page</a>
+                        </div>
+                         <div class="team-member-card">
+                            <h3>Yuki Sato</h3>
+                            <p class="role body-text">Member</p>
+                            <div class="tags">
+                                <span>Arduino</span>
+                            </div>
+                            <a href="pagenotfound.html" class="page-link">Go to my page</a>
                         </div>
                     </div>
                 </div>
@@ -126,7 +154,9 @@
 
             <section id="join-us">
                 <h2 style="color: #4ac5ff;">// Join Us</h2>
-                <a class="button" href="https://jp.surveymonkey.com/r/5L5MP86" target="_blank">Enlist Now</a>
+                <div style="text-align: center;">
+                    <a class="button" href="https://jp.surveymonkey.com/r/5L5MP86" target="_blank">Enlist Now</a>
+                </div>
             </section>
         </main>
 
@@ -145,6 +175,7 @@
             <nav>
                 <ul>
                     <li><a href="#top-jp">ホーム</a></li>
+                    <li><a href="#events-jp">イベント</a></li>
                     <li><a href="#about-us-jp">私たちについて</a></li>
                     <li><a href="#archives-jp">アーカイブ</a></li>
                     <li><a href="#join-us-jp">参加する</a></li>
@@ -152,9 +183,9 @@
             </nav>
         </header>
 
-        <main style="padding-top: 5rem;">
+        <main>
             <section id="events-jp">
-                <h2>// 近日開催のイベント</h2>
+                <h2 style="color: #4ac5ff; margin-bottom: 0.5rem; margin-top: -2rem;">// 近日開催のイベント</h2>
                  <div class="event-container">
                     <div class="parent">
                         <div class="card">
@@ -207,6 +238,7 @@
                             <p class="role body-text">共同設立者</p>
                              <a href="https://maria92835.github.io/portfolio/#" class="page-link">私のページへ</a>
                         </div>
+                       
                     </div>
                 </div>
             </section>
@@ -226,7 +258,9 @@
 
             <section id="join-us-jp">
                 <h2 style="color: #4ac5ff;">// 参加する</h2>
-                 <a class="button" href="https://jp.surveymonkey.com/r/5L5MP86" target="_blank">今すぐ参加</a>
+                <div style="text-align: center;">
+                     <a class="button" href="https://jp.surveymonkey.com/r/5L5MP86" target="_blank">今すぐ参加</a>
+                </div>
             </section>
         </main>
 
@@ -245,6 +279,7 @@
             document.getElementById('loader').style.display = 'none';
             document.getElementById('english-content').style.display = 'block';
         });
+
         document.getElementById('lang-jp').addEventListener('click', function() {
             document.getElementById('loader').style.display = 'none';
             document.getElementById('japanese-content').style.display = 'block';
